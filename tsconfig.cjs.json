@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS",
+		"outDir": "./cjs"
+	},
+	"exclude": ["./src/esm.ts", "./src/front"],
+	"extends": "./tsconfig.json"
+}

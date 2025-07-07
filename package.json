@@ -1,0 +1,56 @@
+{
+	"author": {
+		"name": "Baptiste Pillot",
+		"email": "baptiste@pillot.fr"
+	},
+	"dependencies": {
+	},
+	"description": "Multiple linked objects input and transformers",
+	"devDependencies": {
+		"@types/node": "^22.10",
+		"sass": "^1.83",
+		"typescript": "~5.8"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"exports": {
+		"import": "./esm/links.js",
+		"require": "./cjs/links.js"
+	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"css/*.css",
+		"*/*.d.ts",
+		"*/*.js",
+		"!*/esm.*",
+		"!*.map"
+	],
+	"homepage": "https://it.rocks",
+	"keywords": [
+		"backend",
+		"collection",
+		"linked",
+		"links",
+		"it.rocks",
+		"multiple",
+		"objects"
+	],
+	"license": "LGPL-3.0-or-later",
+	"name": "@itrocks/links",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/links.git"
+	},
+	"scripts": {
+		"build": "npm run build:cjs && npm run build:css && npm run build:esm && npm run build:front && npm run build:html",
+		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build:css": "sass --no-source-map src:css",
+		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm",
+		"build:front": "tsc -p src/front/tsconfig.json && sed -i 's#../../##g' *.js *.d.ts",
+		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
+	},
+	"types": "./esm/links.d.ts",
+	"version": "0.0.1"
+}
