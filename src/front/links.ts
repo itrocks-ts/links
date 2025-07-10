@@ -26,6 +26,11 @@ function appendEmptyInput(container: HTMLUListElement, inputs: NodeListOf<HTMLIn
 	dotPosition = input.name.lastIndexOf('.')
 	input.setAttribute('name', dotPosition < 0 ? input.name : input.name.slice(0, dotPosition))
 
+	const suggestions = li.querySelector('.suggestions')
+	if (suggestions) {
+		suggestions.remove()
+	}
+
 	return container.appendChild(li)
 }
 
