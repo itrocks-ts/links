@@ -23,8 +23,8 @@
 		"LICENSE",
 		"README.md",
 		"css/*.css",
-		"*/*.d.ts",
-		"*/*.js",
+		"**/*.d.ts",
+		"**/*.js",
 		"!*/esm.*",
 		"!*.map"
 	],
@@ -53,5 +53,5 @@
 		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
 	},
 	"types": "./esm/links.d.ts",
-	"version": "0.0.2"
+	"version": "0.0.3"
 }
