@@ -32,11 +32,15 @@
 	"keywords": [
 		"backend",
 		"collection",
+		"component",
+		"field",
 		"linked",
 		"links",
 		"it.rocks",
 		"multiple",
-		"objects"
+		"objects",
+		"UI",
+		"UX"
 	],
 	"license": "LGPL-3.0-or-later",
 	"name": "@itrocks/links",
@@ -53,5 +57,5 @@
 		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
 	},
 	"types": "./esm/links.d.ts",
-	"version": "0.0.4"
+	"version": "0.0.5"
 }
