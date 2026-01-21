@@ -16,8 +16,14 @@
 		"node": ">=18"
 	},
 	"exports": {
-		"import": "./esm/links.js",
-		"require": "./cjs/links.js"
+		".": {
+			"import": "./esm/links.js",
+			"require": "./cjs/links.js"
+		},
+		"./links.js": {
+			"import": "./links.js",
+			"require": "./cjs/links.js"
+		}
 	},
 	"files": [
 		"LICENSE",
@@ -57,5 +63,5 @@
 		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
 	},
 	"types": "./esm/links.d.ts",
-	"version": "0.0.5"
+	"version": "0.0.6"
 }
