@@ -63,5 +63,5 @@
 		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
 	},
 	"types": "./esm/links.d.ts",
-	"version": "0.0.6"
+	"version": "0.1.0"
 }

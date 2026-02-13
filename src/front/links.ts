@@ -36,8 +36,9 @@ function appendEmptyInput(container: HTMLUListElement, inputs: NodeListOf<HTMLIn
 
 function autoDim(event: Event)
 {
-	const input       = event.target as HTMLInputElement
-	const container   = input.closest('ul') as HTMLUListElement
+	const input     = event.target as HTMLInputElement
+	const container = input.closest('ul') as HTMLUListElement
+	if (!container) return
 	const inputs      = container.querySelectorAll<HTMLInputElement>('input:not([type=hidden])')
 	const emptyInputs = updatePlaceholder(inputs)
 	if (!appendEmptyInput(container, inputs)) {
