@@ -8,30 +8,23 @@
 	},
 	"description": "Multiple linked objects input and transformers",
 	"devDependencies": {
-		"@types/node": "^24.10",
 		"sass": "^1.95",
-		"typescript": "~5.9"
+		"typescript": "^6.0"
 	},
 	"engines": {
-		"node": ">=18"
+		"node": ">=24"
 	},
 	"exports": {
-		".": {
-			"import": "./esm/links.js",
-			"require": "./cjs/links.js"
-		},
-		"./links.js": {
-			"import": "./links.js",
-			"require": "./cjs/links.js"
-		}
+		".": "./cjs/links.js",
+		"./links.js": "./links.js"
 	},
 	"files": [
 		"LICENSE",
 		"README.md",
-		"css/*.css",
-		"**/*.d.ts",
-		"**/*.js",
-		"!*/esm.*",
+		"cjs",
+		"css",
+		"*.d.ts",
+		"*.js",
 		"!*.map"
 	],
 	"homepage": "https://it.rocks",
@@ -55,13 +48,11 @@
 		"url": "git+https://github.com/itrocks-ts/links.git"
 	},
 	"scripts": {
-		"build": "npm run build:cjs && npm run build:css && npm run build:esm && npm run build:front && npm run build:html",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build": "npm run build:back && npm run build:css && npm run build:front && npm run build:html",
+		"build:back": "tsc",
 		"build:css": "sass --no-source-map src:css",
-		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm",
 		"build:front": "tsc -p src/front/tsconfig.json && sed -i 's#../../##g' *.js *.d.ts",
 		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
 	},
-	"types": "./esm/links.d.ts",
-	"version": "0.1.0"
+	"version": "0.1.1"
 }
