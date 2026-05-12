@@ -52,7 +52,7 @@
 		"build:back": "tsc",
 		"build:css": "sass --no-source-map src:css",
 		"build:front": "tsc -p src/front/tsconfig.json && sed -i 's#../../##g' *.js *.d.ts",
-		"build:html": "cp src/*.html cjs/ && cp src/*.html esm/"
+		"build:html": "cp src/*.html cjs/"
 	},
-	"version": "0.1.1"
+	"version": "0.1.2"
 }
