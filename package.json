@@ -9,7 +9,7 @@
 	"description": "Multiple linked objects input and transformers",
 	"devDependencies": {
 		"sass": "^1.95",
-		"typescript": "^6.0"
+		"typescript": "^7.0"
 	},
 	"engines": {
 		"node": ">=24"
@@ -54,5 +54,5 @@
 		"build:front": "tsc -p src/front/tsconfig.json && sed -i 's#../../##g' *.js *.d.ts",
 		"build:html": "cp src/*.html cjs/"
 	},
-	"version": "0.1.2"
+	"version": "0.1.3"
 }
