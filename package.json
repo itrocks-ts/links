@@ -3,9 +3,6 @@
 		"name": "Baptiste Pillot",
 		"email": "baptiste@pillot.fr"
 	},
-	"dependencies": {
-		"@itrocks/autocomplete": "latest"
-	},
 	"description": "Multiple linked objects input and transformers",
 	"devDependencies": {
 		"sass": "^1.95",
@@ -54,5 +51,5 @@
 		"build:front": "tsc -p src/front/tsconfig.json && node -e \"const fs=require('node:fs');for(const file of fs.readdirSync('.').filter(file=>file.endsWith('.js')||file.endsWith('.d.ts')))fs.writeFileSync(file,fs.readFileSync(file,'utf8').replaceAll('../../',''))\"",
 		"build:html": "node -e \"const fs=require('node:fs'),path=require('node:path');for(const file of fs.readdirSync('src'))if(file.endsWith('.html'))fs.copyFileSync(path.join('src',file),path.join('cjs',file))\""
 	},
-	"version": "0.2.0"
+	"version": "0.2.1"
 }
