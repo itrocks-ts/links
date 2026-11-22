@@ -19,12 +19,11 @@ function appendEmptyInput(container: HTMLUListElement, inputs: NodeListOf<HTMLIn
 	input.setAttribute('value', '')
 	input.value = ''
 
-	let dotPosition = idInput.id.lastIndexOf('.')
-	idInput.setAttribute('id', dotPosition < 0 ? idInput.id : idInput.id.slice(0, dotPosition))
-	dotPosition = idInput.name.lastIndexOf('.')
-	idInput.setAttribute('name', dotPosition < 0 ? idInput.name : idInput.name.slice(0, dotPosition))
-	dotPosition = input.name.lastIndexOf('.')
-	input.setAttribute('name', dotPosition < 0 ? input.name : input.name.slice(0, dotPosition))
+	const fieldId   = container.dataset.fieldId
+	const fieldName = container.dataset.fieldName
+	idInput.id   = fieldId ? (fieldId + '-id') : withoutLastSegment(idInput.id)
+	idInput.name = fieldName ? (fieldName + '_id') : withoutLastSegment(idInput.name)
+	input.name   = fieldName ?? withoutLastSegment(input.name)
 
 	const suggestions = li.querySelector('.suggestions')
 	if (suggestions) {
@@ -74,4 +73,10 @@ function updatePlaceholder(inputs: NodeListOf<HTMLInputElement>)
 		}
 	})
 	return emptyInputs
+}
+
+function withoutLastSegment(name: string): string
+{
+	const dotPosition = name.lastIndexOf('.')
+	return (dotPosition < 0) ? name : name.slice(0, dotPosition)
 }
