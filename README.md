@@ -61,9 +61,9 @@ input, but it is not required.
 ```
 
 When the user types something in the first row, a new empty row is
-automatically cloned and added at the bottom. If the user clears an input
-and leaves it empty, that row is removed as soon as the focus leaves the
-field (unless it is the currently active one).
+automatically cloned and added at the bottom. Clearing the focused input immediately above the trailing empty input
+removes the trailing input. The focused input then serves as the empty input at the bottom. Other empty inputs are
+cleaned up during input or change events once they lose focus.
 
 ### Complete example with autocomplete and form submission
 

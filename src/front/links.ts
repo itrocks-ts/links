@@ -41,7 +41,10 @@ function autoDim(event: Event)
 	const inputs      = container.querySelectorAll<HTMLInputElement>('input:not([type=hidden])')
 	const emptyInputs = updatePlaceholder(inputs)
 	if (!appendEmptyInput(container, inputs)) {
-		emptyInputs.pop()
+		const beforeLast = inputs[inputs.length - 2]
+		if ((beforeLast?.value !== '') || (beforeLast !== document.activeElement)) {
+			emptyInputs.pop()
+		}
 	}
 	removeEmptyInputs(emptyInputs)
 }
